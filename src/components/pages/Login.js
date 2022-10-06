@@ -10,7 +10,8 @@ const handleChange = (event) => {
     setFirstName(event.target.value)
 }
 
-const handleSubmit = () => {
+const handleSubmit = (event) => {
+    event.preventDefault()
     alert(`Bonjour ${firstName}`)
     setFirstName("")
 }
@@ -20,8 +21,8 @@ const handleSubmit = () => {
     <>
     <h1>Bienvenue chez nous</h1>
     <h2>Connectez-vous</h2>
-    <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Entrez votre prénom...' required onChange={handleChange}/>
+    <form action="submit" onSubmit={handleSubmit}>
+        <input value={firstName} type="text" placeholder='Entrez votre prénom...' required onChange={handleChange}/>
         <button >Accédez à votre espace</button>
     </form>
     </>
