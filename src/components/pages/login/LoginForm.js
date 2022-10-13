@@ -13,7 +13,13 @@ export default function LoginForm() {
    }
 
    const handleSubmit = (event) => {
+      //FirstName Regex
+      const validFirstName = /^[a-zA-Z-\s]{1,50}$/
       event.preventDefault()
+      if (!validFirstName.test(firstName)) {
+         alert("Prénom invalide !")
+         return
+      }
       navigate("/order", { state: `${firstName}` })
       setFirstName("")
    }
