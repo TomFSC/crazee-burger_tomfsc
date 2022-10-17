@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Button from "../../common/button/Button"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -35,7 +36,7 @@ export default function LoginForm() {
             required
             onChange={handleChange}
          />
-         <button>Accédez à votre espace</button>
+         <Button value={"Accédez à votre espace"} />
       </form>
    )
 }
