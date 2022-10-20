@@ -1,5 +1,5 @@
-const Button = (props) => {
-   return <button onClick={props.clickHandler}>{props.value}</button>
+const Button = ({ onClick, value }) => {
+   return <button onClick={onClick}>{value}</button>
 }
 
 export default Button

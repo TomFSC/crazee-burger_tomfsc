@@ -13,7 +13,7 @@ export default function ErrorPage() {
          <br />
          <Button
             value={"Retourner à la page d'accueil"}
-            clickHandler={returnClickHandler}
+            onClick={returnClickHandler}
          />
       </>
    )

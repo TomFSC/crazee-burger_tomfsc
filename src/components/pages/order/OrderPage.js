@@ -12,7 +12,7 @@ export default function OrderPage() {
       <>
          <h1>Bonjour {state}</h1>
          <br />
-         <Button value={"Déconnexion"} clickHandler={logoutClickHandler} />
+         <Button value={"Déconnexion"} onClick={logoutClickHandler} />
       </>
    )
 }
