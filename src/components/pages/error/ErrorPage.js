@@ -3,7 +3,7 @@ import Button from "../../common/button/Button"
 
 export default function ErrorPage() {
    const navigate = useNavigate()
-   //Business logic
+   //Conduct
    const returnClickHandler = () => {
       navigate("/")
    }

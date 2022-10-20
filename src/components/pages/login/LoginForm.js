@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { checkIfFirstNameIsValid } from "../../../utils/string"
 import Button from "../../common/button/Button"
 
 export default function LoginForm() {
@@ -7,22 +8,19 @@ export default function LoginForm() {
    //State
    const [firstName, setFirstName] = useState("")
 
-   //Business logic
+   //Conduct
    const handleChange = (event) => {
       event.preventDefault()
       setFirstName(event.target.value)
    }
 
    const handleSubmit = (event) => {
-      //FirstName Regex
-      const validFirstName = /^[a-zA-Z-\s]{1,50}$/
       event.preventDefault()
-      if (!validFirstName.test(firstName)) {
-         alert("Prénom invalide !")
+      if (!checkIfFirstNameIsValid(firstName)) {
+         setFirstName("")
          return
       }
       navigate("/order", { state: `${firstName}` })
-      setFirstName("")
    }
    return (
       <form action="submit" onSubmit={handleSubmit}>
