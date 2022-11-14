@@ -19,6 +19,7 @@ const MainTitleContainer = styled.div`
    display: flex;
    align-items: center;
    column-gap: ${spacing.sm};
+   margin-bottom: 30px;
    p {
       font-family: "Amatic SC", cursive;
       font-size: 100px;
