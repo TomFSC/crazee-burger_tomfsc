@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom"
-import Button from "../../common/button/Button"
 
 export default function ErrorPage() {
    const navigate = useNavigate()
@@ -11,10 +10,9 @@ export default function ErrorPage() {
       <>
          <h1>Désolé, cette page n'existe pas !</h1>
          <br />
-         <Button
-            value={"Retourner à la page d'accueil"}
-            onClick={returnClickHandler}
-         />
+         <button onClick={returnClickHandler}>
+            Retourner à la page d'accueil
+         </button>
       </>
    )
 }
