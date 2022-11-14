@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
-import Button from "../../common/button/Button"
 import { BsPersonCircle } from "react-icons/bs"
+import LoginButtonStyled from "./LoginButtonStyled"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -30,7 +30,7 @@ export default function LoginForm() {
          <h1>Bienvenue chez nous !</h1>
          <br />
          <h2>Connectez-vous</h2>
-         <div>
+         <div className="input-wrapper">
             <BsPersonCircle style={{ color: `${colors.greyDark}` }} />
             <input
                value={firstName}
@@ -40,7 +40,10 @@ export default function LoginForm() {
                onChange={handleChange}
             />
          </div>
-         <Button value={"Accédez à votre espace"} />
+         <LoginButtonStyled
+            value={"Accéder à mon espace"}
+            isActive={firstName ? "isActive" : ""}
+         />
       </FormStyled>
    )
 }
@@ -72,14 +75,14 @@ const FormStyled = styled.form`
       font-size: ${fonts.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
    }
-   div {
+   .input-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
       column-gap: ${spacing.sm};
       width: 100%;
       height: 60px;
-      border: none;
+      border: 1px solid ${colors.dark};
       background-color: ${colors.white};
       border-radius: ${borderRadius.round};
    }

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import LoginForm from "./LoginForm"
 import backgroundImg from "../../../images/burger-background.jpg"
-import MainTitle from "./MainTitle"
+import MainTitle from "./MainTitleStyled"
 
 export default function LoginPage() {
    //Render
