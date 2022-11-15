@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import LoginForm from "./LoginForm"
 import backgroundImg from "../../../images/burger-background.jpg"
-import MainTitle from "./MainTitleStyled"
+import Title from "./TitleStyled"
 
 export default function LoginPage() {
    //Render
    return (
       <LoginContainerStyled>
-         <MainTitle />
+         <Title />
          <LoginForm />
       </LoginContainerStyled>
    )
