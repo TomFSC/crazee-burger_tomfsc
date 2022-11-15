@@ -5,6 +5,7 @@ import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
 import { BsPersonCircle } from "react-icons/bs"
 import Button from "../../reusable-ui/Button"
+import Input from "../../reusable-ui/Input"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -32,10 +33,10 @@ export default function LoginForm() {
          <h2>Connectez-vous</h2>
          <div className="input-wrapper">
             <BsPersonCircle style={{ color: `${colors.greyDark}` }} />
-            <input
+            <Input
                value={firstName}
                type="text"
-               placeholder="Entrez votre prénom"
+               placeholder={"Entrez votre prénom"}
                required
                onChange={handleChange}
             />
@@ -85,8 +86,5 @@ const FormStyled = styled.form`
       border: 1px solid ${colors.dark};
       background-color: ${colors.white};
       border-radius: ${borderRadius.round};
-   }
-   input {
-      width: 80%;
    }
 `
