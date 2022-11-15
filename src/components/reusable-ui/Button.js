@@ -1,17 +1,11 @@
-import { MdOutlineKeyboardArrowRight } from "react-icons/md"
+import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../theme"
+import { theme } from "../../theme"
 
-function LoginButtonStyled({ onClick, value, isActive }) {
-   return (
-      <ButtonStyled onClick={onClick} isActive={isActive}>
-         {value}
-         <MdOutlineKeyboardArrowRight />
-      </ButtonStyled>
-   )
+function Button({ label, isActive }) {
+   return <ButtonStyled isActive={isActive}>{label}</ButtonStyled>
 }
 
-//Style
 const { colors, fonts, spacing, borderRadius } = theme
 
 const ButtonStyled = styled.button`
@@ -28,4 +22,4 @@ const ButtonStyled = styled.button`
    background: ${(props) => (props.isActive ? colors.primary : colors.white)};
    color: ${(props) => (props.isActive ? colors.white : colors.primary)};
 `
-export default LoginButtonStyled
+export default Button

@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
 import { BsPersonCircle } from "react-icons/bs"
-import LoginButtonStyled from "./LoginButtonStyled"
+import Button from "../../reusable-ui/Button"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -40,8 +40,8 @@ export default function LoginForm() {
                onChange={handleChange}
             />
          </div>
-         <LoginButtonStyled
-            value={"Accéder à mon espace"}
+         <Button
+            label={"Accéder à mon espace"}
             isActive={firstName ? "isActive" : ""}
          />
       </FormStyled>
