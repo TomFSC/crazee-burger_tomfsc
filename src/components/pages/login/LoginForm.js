@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
-import Button from "../../reusable-ui/Button"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
+import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -39,9 +40,9 @@ export default function LoginForm() {
             type="text"
             required
          />
-         <Button
+         <PrimaryButton
             label={"Accéder à mon espace"}
-            isActive={firstName ? "isActive" : ""}
+            Icon={<MdOutlineKeyboardArrowRight className="icon" />}
          />
       </LoginFormStyled>
    )
@@ -54,7 +55,7 @@ const LoginFormStyled = styled.form`
    display: flex;
    flex-direction: column;
    align-items: center;
-   max-width: 350px;
+   max-width: 400px;
 
    h1 {
       width: 100%;
@@ -73,5 +74,8 @@ const LoginFormStyled = styled.form`
       font-weight: ${weights.semiBold};
       font-size: ${fonts.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
+   }
+   .icon {
+      scale: 1.2;
    }
 `

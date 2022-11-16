@@ -1,13 +1,18 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-function Button({ label, isActive }) {
-   return <ButtonStyled isActive={isActive}>{label}</ButtonStyled>
+function PrimaryButton({ label, Icon }) {
+   return (
+      <PrimaryButtonStyled>
+         {label}
+         {Icon && Icon}
+      </PrimaryButtonStyled>
+   )
 }
 
 const { colors, fonts, spacing, borderRadius } = theme
 
-const ButtonStyled = styled.button`
+const PrimaryButtonStyled = styled.button`
    width: 100%;
    height: 60px;
    display: flex;
@@ -18,7 +23,10 @@ const ButtonStyled = styled.button`
    color: ${colors.primary};
    border: 1px solid ${colors.primary};
    border-radius: ${borderRadius.round};
-   background: ${(props) => (props.isActive ? colors.primary : colors.white)};
-   color: ${(props) => (props.isActive ? colors.white : colors.primary)};
+
+   &:hover {
+      background: ${colors.primary};
+      color: ${colors.white};
+   }
 `
-export default Button
+export default PrimaryButton

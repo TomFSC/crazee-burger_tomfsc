@@ -18,7 +18,7 @@ const LogoStyled = styled.h1`
    display: flex;
    align-items: center;
    column-gap: ${spacing.xs};
-   margin-bottom: 30px;
+   margin-bottom: ${spacing.lg};
    scale: 2.5;
    font-size: ${fonts.P4};
    font-family: "Amatic SC", cursive;
