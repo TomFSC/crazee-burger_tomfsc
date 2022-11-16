@@ -1,5 +1,4 @@
 import { useNavigate, useLocation } from "react-router-dom"
-import Button from "../../common/button/Button"
 
 export default function OrderPage() {
    const navigate = useNavigate()
@@ -12,7 +11,7 @@ export default function OrderPage() {
       <>
          <h1>Bonjour {state}</h1>
          <br />
-         <Button value={"Déconnexion"} onClick={logoutClickHandler} />
+         <button onClick={logoutClickHandler}>Déconnexion</button>
       </>
    )
 }

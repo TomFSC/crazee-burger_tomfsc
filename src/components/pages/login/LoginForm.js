@@ -1,7 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
-import Button from "../../common/button/Button"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import TextInput from "../../reusable-ui/TextInput"
+import { BsPersonCircle } from "react-icons/bs"
+import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -23,18 +28,54 @@ export default function LoginForm() {
       navigate("/order", { state: `${firstName}` })
    }
    return (
-      <form action="submit" onSubmit={handleSubmit}>
+      <LoginFormStyled action="submit" onSubmit={handleSubmit}>
          <h1>Bienvenue chez nous !</h1>
          <br />
          <h2>Connectez-vous</h2>
-         <input
+         <TextInput
+            Icon={<BsPersonCircle className="icon" />}
             value={firstName}
-            type="text"
-            placeholder="Entrez votre prénom..."
-            required
             onChange={handleChange}
+            placeholder={"Entrez votre prénom"}
+            type="text"
+            required
          />
-         <Button value={"Accédez à votre espace"} />
-      </form>
+         <PrimaryButton
+            label={"Accéder à mon espace"}
+            Icon={<MdOutlineKeyboardArrowRight className="icon" />}
+         />
+      </LoginFormStyled>
    )
 }
+
+//Style
+const { colors, fonts, weights, spacing } = theme
+
+const LoginFormStyled = styled.form`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   max-width: 400px;
+
+   h1 {
+      width: 100%;
+      text-align: center;
+      font-family: "Amatic SC", cursive;
+      color: ${colors.white};
+      font-size: ${fonts.P5};
+      font-weight: ${weights.bold};
+      padding: ${spacing.lg};
+      border-bottom: 3px solid ${colors.red};
+   }
+
+   h2 {
+      font-family: "Amatic SC", cursive;
+      color: ${colors.white};
+      font-weight: ${weights.semiBold};
+      font-size: ${fonts.P4};
+      margin: ${spacing.lg} 0 ${spacing.md} 0;
+   }
+   .icon {
+      scale: 1.2;
+   }
+`
