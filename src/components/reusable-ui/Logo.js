@@ -1,21 +1,20 @@
 import styled from "styled-components"
-import logo from "../../../images/logo-orange.png"
-import { theme } from "../../../theme"
+import { theme } from "../../theme"
 
-function MainTitle() {
+function Logo() {
    return (
-      <TitleContainer>
+      <LogoStyled>
          CRAZEE
-         <img src={logo} alt="logo crazy burger" />
+         <img src={"images/logo-orange.png"} alt="logo-crazy-burger" />
          BURGER
-      </TitleContainer>
+      </LogoStyled>
    )
 }
 
 //Style
 const { colors, weights, spacing, fonts } = theme
 
-const TitleContainer = styled.h1`
+const LogoStyled = styled.h1`
    display: flex;
    align-items: center;
    column-gap: ${spacing.xs};
@@ -31,4 +30,4 @@ const TitleContainer = styled.h1`
    }
 `
 
-export default MainTitle
+export default Logo
