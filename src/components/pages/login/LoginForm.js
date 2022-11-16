@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
-import { BsPersonCircle } from "react-icons/bs"
 import Button from "../../reusable-ui/Button"
-import Input from "../../reusable-ui/Input"
+import TextInput from "../../reusable-ui/TextInput"
+import { BsPersonCircle } from "react-icons/bs"
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -27,36 +27,34 @@ export default function LoginForm() {
       navigate("/order", { state: `${firstName}` })
    }
    return (
-      <FormStyled action="submit" onSubmit={handleSubmit}>
+      <LoginFormStyled action="submit" onSubmit={handleSubmit}>
          <h1>Bienvenue chez nous !</h1>
          <br />
          <h2>Connectez-vous</h2>
-         <div className="input-wrapper">
-            <BsPersonCircle style={{ color: `${colors.greyDark}` }} />
-            <Input
-               value={firstName}
-               type="text"
-               placeholder={"Entrez votre prénom"}
-               required
-               onChange={handleChange}
-            />
-         </div>
+         <TextInput
+            Icon={<BsPersonCircle className="icon" />}
+            value={firstName}
+            onChange={handleChange}
+            placeholder={"Entrez votre prénom"}
+            type="text"
+            required
+         />
          <Button
             label={"Accéder à mon espace"}
             isActive={firstName ? "isActive" : ""}
          />
-      </FormStyled>
+      </LoginFormStyled>
    )
 }
 
 //Style
-const { colors, fonts, weights, spacing, borderRadius } = theme
+const { colors, fonts, weights, spacing } = theme
 
-const FormStyled = styled.form`
+const LoginFormStyled = styled.form`
    display: flex;
    flex-direction: column;
    align-items: center;
-   width: 400px;
+   max-width: 350px;
 
    h1 {
       width: 100%;
@@ -75,16 +73,5 @@ const FormStyled = styled.form`
       font-weight: ${weights.semiBold};
       font-size: ${fonts.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
-   }
-   .input-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: ${spacing.sm};
-      width: 100%;
-      height: 60px;
-      border: 1px solid ${colors.dark};
-      background-color: ${colors.white};
-      border-radius: ${borderRadius.round};
    }
 `
