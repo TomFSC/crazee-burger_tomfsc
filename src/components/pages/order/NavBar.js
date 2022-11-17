@@ -20,7 +20,7 @@ function NavBar({ onClick, state }) {
    )
 }
 
-const { colors, fonts, spacing, borderRadius } = theme
+const { colors, fonts, spacing } = theme
 
 const NavBarStyled = styled.div`
    display: flex;
@@ -28,10 +28,11 @@ const NavBarStyled = styled.div`
    align-items: center;
    width: 100%;
    height: 80px;
-   margin: 10px 20px 0;
-   border: 1px solid black; //To delete
-   border-top-left-radius: ${borderRadius.extraRound};
-   border-top-right-radius: ${borderRadius.extraRound};
+   background-color: ${colors.white};
+   box-shadow: 8px 8px 25px ${colors.greyMedium};
+   @media screen and (max-width: 450px) {
+      justify-content: center;
+   }
    .navbar-right-container {
       display: flex;
       align-items: center;
@@ -41,7 +42,10 @@ const NavBarStyled = styled.div`
       max-width: 50%;
       min-width: 200px;
       margin-right: ${spacing.lg};
-
+      @media screen and (max-width: 580px) {
+         margin-right: 0;
+         justify-content: flex-start;
+      }
       .infos-container {
          display: flex;
          flex-direction: column;

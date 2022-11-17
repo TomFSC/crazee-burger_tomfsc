@@ -25,6 +25,13 @@ const LogoStyled = styled.h1`
    font-family: "Amatic SC", cursive;
    color: ${colors.primary};
    font-weight: ${weights.bold};
+   @media screen and (max-width: 1024px) {
+      scale: ${({ type }) => (type === "XS" ? 1 : 1.5)};
+   }
+   @media screen and (max-width: 580px) {
+      scale: ${({ type }) => type === "XS" && 0.6};
+      column-gap: 0;
+   }
 
    img {
       height: 50px;
