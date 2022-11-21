@@ -1,19 +1,15 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import styled from "styled-components"
 import { theme } from "../../../theme"
 import NavBar from "./NavBar"
 
 export default function OrderPage() {
    const { state } = useLocation()
-   const navigate = useNavigate()
-   const logoutClickHandler = () => {
-      navigate("/")
-   }
 
    return (
       <OrderPageStyled>
          <div className="order-container">
-            <NavBar state={state} onClick={logoutClickHandler} />
+            <NavBar firstName={state} />
          </div>
       </OrderPageStyled>
    )

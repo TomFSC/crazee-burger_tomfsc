@@ -2,17 +2,18 @@ import styled from "styled-components"
 import { theme } from "../../../theme"
 import Logo from "../../reusable-ui/Logo"
 import { BsPersonCircle } from "react-icons/bs"
+import { Link } from "react-router-dom"
 
-function NavBar({ onClick, state }) {
+function NavBar({ onClick, firstName }) {
    return (
       <NavBarStyled>
          <Logo type={"XS"} />
          <div className="navbar-right-container">
             <div className="infos-container">
                <h3>
-                  Hey, <span>{state}</span>
+                  Hey, <span>{firstName}</span>
                </h3>
-               <p onClick={onClick}>Se déconnecter</p>
+               <Link to="/">Se déconnecter</Link>
             </div>
             <BsPersonCircle className="icon" />
          </div>
@@ -60,7 +61,8 @@ const NavBarStyled = styled.div`
                color: ${colors.primary};
             }
          }
-         p {
+         a {
+            text-decoration: none;
             border-bottom: 2px solid transparent;
             color: ${colors.greyMedium};
             font-size: ${fonts.XS};
