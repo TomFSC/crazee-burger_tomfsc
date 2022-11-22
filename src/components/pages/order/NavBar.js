@@ -4,7 +4,7 @@ import Logo from "../../reusable-ui/Logo"
 import { BsPersonCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
-function NavBar({ onClick, firstName }) {
+function NavBar({ firstName }) {
    return (
       <NavBarStyled>
          <Logo type={"XS"} />
@@ -24,6 +24,7 @@ function NavBar({ onClick, firstName }) {
 const { colors, fonts, spacing } = theme
 
 const NavBarStyled = styled.div`
+   //Rename to nav tag
    display: flex;
    justify-content: space-between;
    align-items: center;

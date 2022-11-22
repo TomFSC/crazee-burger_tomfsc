@@ -18,19 +18,18 @@ const LogoStyled = styled.h1`
    display: flex;
    align-items: center;
    column-gap: ${spacing.xs};
-   margin-bottom: ${({ type }) => (type === "XS" ? 0 : spacing.lg)};
+   margin-bottom: ${({ type }) => (type === "XS" ? 0 : spacing.xxl)};
    margin-left: ${({ type }) => (type === "XS" ? spacing.sm : 0)};
-   scale: ${({ type }) => (type === "XS" ? 1 : 2.5)};
+   scale: ${({ type }) => (type === "XS" ? 1 : 3.5)};
    font-size: ${fonts.P4};
    font-family: "Amatic SC", cursive;
    color: ${colors.primary};
    font-weight: ${weights.bold};
    @media screen and (max-width: 1024px) {
-      scale: ${({ type }) => (type === "XS" ? 1 : 1.5)};
+      scale: ${({ type }) => (type === "XS" ? 1 : 2)};
    }
-   @media screen and (max-width: 580px) {
+   @media screen and (max-width: 480px) {
       scale: ${({ type }) => type === "XS" && 0.6};
-      column-gap: 0;
    }
 
    img {
