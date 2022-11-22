@@ -24,17 +24,11 @@ const OrderPageStyled = styled.div`
    justify-content: center;
    background-color: ${colors.primary};
    .order-container {
-      width: 100%;
+      width: 1400px;
       margin: 20px;
       overflow: hidden;
       background-color: ${colors.white};
       border-radius: ${borderRadius.extraRound};
       box-shadow: inset 0px 0px 12px 0px ${colors.greySemiDark};
-      @media screen and (max-width: 1024px) {
-         width: 75%;
-      }
-      @media screen and (max-width: 450px) {
-         width: 100%;
-      }
    }
 `
