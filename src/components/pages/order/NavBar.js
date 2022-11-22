@@ -6,13 +6,13 @@ import Profile from "./Profile"
 function NavBar({ firstName }) {
    return (
       <NavBarStyled>
-         <Logo type={"XS"} />
+         <Logo className="logo-order-page" />
          <Profile firstName={firstName} />
       </NavBarStyled>
    )
 }
 
-const { colors } = theme
+const { colors, spacing } = theme
 
 const NavBarStyled = styled.nav`
    display: flex;
@@ -24,6 +24,13 @@ const NavBarStyled = styled.nav`
    box-shadow: 8px 8px 25px ${colors.greyMedium};
    @media screen and (max-width: 450px) {
       justify-content: center;
+   }
+   .logo-order-page {
+      scale: 1;
+      margin-left: ${spacing.sm};
+      @media screen and (max-width: 480px) {
+         scale: 0.6;
+      }
    }
 `
 
