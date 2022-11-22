@@ -2,11 +2,12 @@ import styled from "styled-components"
 import { theme } from "../../../theme"
 import Logo from "../../reusable-ui/Logo"
 import Profile from "./Profile"
+import { refreshPage } from "../../../utils/refreshPage"
 
 function NavBar({ firstName }) {
    return (
       <NavBarStyled>
-         <Logo className="logo-order-page" />
+         <Logo onClick={refreshPage} className="logo-order-page" />
          <Profile firstName={firstName} />
       </NavBarStyled>
    )
@@ -28,6 +29,9 @@ const NavBarStyled = styled.nav`
    .logo-order-page {
       scale: 1;
       margin-left: ${spacing.sm};
+      &:hover {
+         cursor: pointer;
+      }
       @media screen and (max-width: 480px) {
          scale: 0.6;
       }

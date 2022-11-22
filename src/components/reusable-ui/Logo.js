@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-function Logo({ className }) {
+function Logo({ className, onClick }) {
    return (
-      <LogoStyled className={className}>
+      <LogoStyled className={className} onClick={onClick}>
          CRAZEE
          <img src={"images/logo-orange.png"} alt="logo-crazy-burger" />
          BURGER
