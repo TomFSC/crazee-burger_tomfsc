@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { theme } from "../../../theme"
 import { checkIfFirstNameIsValid } from "../../../utils/string"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
 import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
+import { theme } from "../../../theme"
+const { colors, fonts, weights, spacing } = theme
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -49,8 +50,6 @@ export default function LoginForm() {
 }
 
 //Style
-const { colors, fonts, weights, spacing } = theme
-
 const LoginFormStyled = styled.form`
    display: flex;
    flex-direction: column;
