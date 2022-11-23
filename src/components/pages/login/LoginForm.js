@@ -7,7 +7,7 @@ import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 import { theme } from "../../../theme"
-const { colors, fonts, weights, spacing } = theme
+const { colors, fonts, spacing } = theme
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -64,8 +64,8 @@ const LoginFormStyled = styled.form`
       text-align: center;
       font-family: "Amatic SC", cursive;
       color: ${colors.white};
-      font-size: ${fonts.P6};
-      font-weight: ${weights.bold};
+      font-size: ${fonts.size.P6};
+      font-weight: ${fonts.weights.bold};
       padding: ${spacing.lg};
       border-bottom: 3px solid ${colors.red};
    }
@@ -73,8 +73,8 @@ const LoginFormStyled = styled.form`
    h2 {
       font-family: "Amatic SC", cursive;
       color: ${colors.white};
-      font-weight: ${weights.semiBold};
-      font-size: ${fonts.P4};
+      font-weight: ${fonts.weights.semiBold};
+      font-size: ${fonts.size.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
    }
    .icon {

@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
+const { colors, fonts, spacing, borderRadius } = theme
 
 function PrimaryButton({ label, Icon }) {
    return (
@@ -10,7 +11,7 @@ function PrimaryButton({ label, Icon }) {
    )
 }
 
-const { colors, fonts, spacing, borderRadius } = theme
+//Style
 
 const PrimaryButtonStyled = styled.button`
    width: 100%;
@@ -19,7 +20,7 @@ const PrimaryButtonStyled = styled.button`
    align-items: center;
    justify-content: center;
    margin-top: ${spacing.sm};
-   font-size: ${fonts.P1};
+   font-size: ${fonts.size.P1};
    color: ${colors.white};
    background: ${colors.primary};
    border: 1px solid ${colors.primary};

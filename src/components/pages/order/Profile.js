@@ -36,14 +36,14 @@ const ProfileStyled = styled.div`
    .profileInfos {
       display: flex;
       flex-direction: column;
-      row-gap: 5px;
+      row-gap: ${spacing.xxs};
       align-items: flex-end;
       justify-content: center;
       font-family: "Open Sans", sans-serif;
    }
    h3 {
       color: ${colors.greyDark};
-      font-size: ${fonts.P0};
+      font-size: ${fonts.size.P0};
       span {
          color: ${colors.primary};
       }
@@ -52,7 +52,7 @@ const ProfileStyled = styled.div`
       text-decoration: none;
       border-bottom: 2px solid transparent;
       color: ${colors.greyMedium};
-      font-size: ${fonts.XS};
+      font-size: ${fonts.size.XS};
       &:hover {
          cursor: pointer;
          border-bottom: 2px solid ${colors.greyMedium};
