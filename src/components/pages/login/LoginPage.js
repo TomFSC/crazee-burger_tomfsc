@@ -7,15 +7,13 @@ export default function LoginPage() {
    //Render
    return (
       <LoginPageStyled>
-         <Logo className="logo-loginPage" />
+         <Logo className="logo-loginpage" />
          <LoginForm />
       </LoginPageStyled>
    )
 }
 
 //Style
-
-const { spacing } = theme
 
 const LoginPageStyled = styled.div`
    height: 100vh;
@@ -26,9 +24,9 @@ const LoginPageStyled = styled.div`
    background: url("images/burger-background.jpg") rgba(0, 0, 0, 0.7);
    background-size: cover;
    background-blend-mode: darken;
-   .logo-loginPage {
+   .logo-loginpage {
       scale: 3.5;
-      margin-bottom: ${spacing.xxl};
+      margin-bottom: ${theme.spacing.xxl};
       @media screen and (max-width: 1024px) {
          scale: 2;
       }

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { theme } from "../../../theme"
 import { BsPersonCircle } from "react-icons/bs"
+import { theme } from "../../../theme"
+const { colors, fonts, spacing } = theme
 
 function Profile({ firstName }) {
    return (
@@ -17,8 +18,7 @@ function Profile({ firstName }) {
    )
 }
 
-const { colors, fonts, spacing } = theme
-
+//Style
 const ProfileStyled = styled.div`
    display: flex;
    align-items: center;

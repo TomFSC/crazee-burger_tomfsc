@@ -1,8 +1,9 @@
 import styled from "styled-components"
-import { theme } from "../../../theme"
 import Logo from "../../reusable-ui/Logo"
 import Profile from "./Profile"
 import { refreshPage } from "../../../utils/refreshPage"
+import { theme } from "../../../theme"
+const { colors, spacing } = theme
 
 function NavBar({ firstName }) {
    return (
@@ -13,8 +14,7 @@ function NavBar({ firstName }) {
    )
 }
 
-const { colors, spacing } = theme
-
+//Style
 const NavBarStyled = styled.nav`
    display: flex;
    justify-content: space-between;

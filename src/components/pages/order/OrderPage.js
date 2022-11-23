@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom"
 import styled from "styled-components"
-import { theme } from "../../../theme"
 import NavBar from "./NavBar"
+import { theme } from "../../../theme"
+const { colors, borderRadius } = theme
 
 export default function OrderPage() {
    const { state } = useLocation()
@@ -15,8 +16,7 @@ export default function OrderPage() {
    )
 }
 
-const { colors, borderRadius } = theme
-
+//Style
 const OrderPageStyled = styled.div`
    width: 100%;
    height: 100vh;
