@@ -20,13 +20,14 @@ const PrimaryButtonStyled = styled.button`
    justify-content: center;
    margin-top: ${spacing.sm};
    font-size: ${fonts.P1};
-   color: ${colors.primary};
+   color: ${colors.white};
+   background: ${colors.primary};
    border: 1px solid ${colors.primary};
    border-radius: ${borderRadius.round};
 
    &:hover {
-      background: ${colors.primary};
-      color: ${colors.white};
+      background: ${colors.white};
+      color: ${colors.primary};
    }
 `
 export default PrimaryButton

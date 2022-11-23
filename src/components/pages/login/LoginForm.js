@@ -55,14 +55,17 @@ const LoginFormStyled = styled.form`
    display: flex;
    flex-direction: column;
    align-items: center;
-   max-width: 400px;
+   width: 500px;
+   @media screen and (max-width: 480px) {
+      width: 350px;
+   }
 
    h1 {
       width: 100%;
       text-align: center;
       font-family: "Amatic SC", cursive;
       color: ${colors.white};
-      font-size: ${fonts.P5};
+      font-size: ${fonts.P6};
       font-weight: ${weights.bold};
       padding: ${spacing.lg};
       border-bottom: 3px solid ${colors.red};
