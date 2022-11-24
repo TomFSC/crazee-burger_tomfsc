@@ -2,8 +2,10 @@ import styled from "styled-components"
 import { theme } from "../../../theme"
 import { roundedPrice } from "../../../utils/calculation"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
+const { colors, fonts, gridUnit, spacing, borderRadius } = theme
 
-function ProductCard({ title, imageSource, price }) {
+function ProductCard({ menu }) {
+   const { imageSource, title, price } = menu
    return (
       <ProductCardStyled>
          <img src={imageSource} alt={title} />
@@ -23,12 +25,11 @@ const ProductCardStyled = styled.div`
    width: 240px;
    display: flex;
    flex-direction: column;
-   align-items: center;
    justify-content: flex-end;
-   border-radius: 15px;
+   border-radius: ${borderRadius.extraRound};
    margin: auto;
-   padding: 0 20px 20px;
-   box-shadow: -5px 5px 10px lightgrey;
+   padding: 0 ${spacing.md} ${spacing.md};
+   box-shadow: -8px 8px 12px lightgrey;
 
    img {
       width: 100%;
@@ -45,7 +46,7 @@ const ProductCardStyled = styled.div`
       h3 {
          align-self: flex-start;
          font-family: "Amatic SC", cursive;
-         font-size: ${theme.fonts.size.P4};
+         font-size: ${fonts.size.P4};
       }
       .cta {
          width: 100%;
@@ -55,18 +56,17 @@ const ProductCardStyled = styled.div`
          justify-content: space-between;
          font-family: "Open Sans", sans-serif;
          p {
-            color: ${theme.colors.primary};
-            font-size: ${theme.fonts.size.P0};
+            color: ${colors.primary};
+            font-size: ${fonts.size.P0};
          }
          .card-button {
             width: 50%;
-            height: 40px;
-            margin: 0;
-            font-size: ${theme.fonts.size.P0};
+            height: ${5 * gridUnit}px;
+            font-size: ${fonts.size.P0};
             &:active {
-               color: ${theme.colors.primary};
-               border: 2px solid ${theme.colors.primary};
-               background-color: ${theme.colors.white};
+               color: ${colors.primary};
+               border: 2px solid ${colors.primary};
+               background-color: ${colors.white};
             }
          }
       }
