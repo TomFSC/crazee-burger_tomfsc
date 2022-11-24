@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom"
 import styled from "styled-components"
 import NavBar from "./NavBar"
 import { theme } from "../../../theme"
+import ProductCard from "./ProductCard"
+import { fakeMenu2 } from "../../../fakeData/fakeMenu"
 const { colors, borderRadius } = theme
 
 export default function OrderPage() {
@@ -12,18 +14,16 @@ export default function OrderPage() {
          <div className="order-container">
             <NavBar firstName={state} className="nav" />
             <div className="order-list">
-               <div className="one">
-                  <div className="product-card">
-                     <img src="/images/burger-bacon-egg.png" alt="burger1" />
-                     <div className="product-infos">
-                        <h3>BURGER SMOKE BBQ</h3>
-                        <div className="cta">
-                           <p>PRICE</p>
-                           <button>Ajouter</button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               {fakeMenu2.map((menu) => {
+                  const { imageSource, title, price } = menu
+                  return (
+                     <ProductCard
+                        title={title}
+                        imageSource={imageSource}
+                        price={price}
+                     />
+                  )
+               })}
             </div>
          </div>
       </OrderPageStyled>
@@ -59,40 +59,6 @@ const OrderPageStyled = styled.div`
          grid-auto-rows: 350px;
          grid-gap: 25px;
          overflow: scroll;
-
-         .product-card {
-            height: 330px;
-            width: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            border: 2px solid red;
-            border-radius: 15px;
-            margin: auto;
-            img {
-               width: 75%;
-               height: 40%;
-            }
-            .product-infos {
-               display: flex;
-               flex-direction: column;
-               width: 100%;
-               height: 40%;
-               align-items: center;
-               justify-content: space-around;
-               border: 2px solid green;
-
-               .cta {
-                  width: 100%;
-                  height: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-around;
-                  border: 2px solid blue;
-               }
-            }
-         }
       }
    }
 `
