@@ -47,7 +47,6 @@ const ProductCardStyled = styled.div`
          font-family: "Amatic SC", cursive;
          font-size: ${theme.fonts.size.P4};
       }
-
       .cta {
          width: 100%;
          height: 50%;
@@ -64,6 +63,11 @@ const ProductCardStyled = styled.div`
             height: 40px;
             margin: 0;
             font-size: ${theme.fonts.size.P0};
+            &:active {
+               color: ${theme.colors.primary};
+               border: 2px solid ${theme.colors.primary};
+               background-color: ${theme.colors.white};
+            }
          }
       }
    }

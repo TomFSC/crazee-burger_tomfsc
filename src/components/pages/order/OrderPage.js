@@ -15,9 +15,10 @@ export default function OrderPage() {
             <NavBar firstName={state} className="nav" />
             <div className="order-list">
                {fakeMenu2.map((menu) => {
-                  const { imageSource, title, price } = menu
+                  const { id, imageSource, title, price } = menu
                   return (
                      <ProductCard
+                        key={id}
                         title={title}
                         imageSource={imageSource}
                         price={price}
@@ -52,8 +53,9 @@ const OrderPageStyled = styled.div`
       }
       .order-list {
          width: 100%;
-         height: 88%;
-         padding: 35px;
+         height: 100%;
+         padding: 35px 35px 120px;
+         margin-bottom: 100px;
          display: grid;
          grid-template-columns: repeat(4, 1fr);
          grid-auto-rows: 350px;
