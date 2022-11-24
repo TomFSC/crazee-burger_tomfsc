@@ -10,7 +10,9 @@ function ProductCard({ menu }) {
       <ProductCardStyled>
          <img src={imageSource} alt={title} />
          <div className="product-infos">
-            <h3>{title}</h3>
+            <div className="product-title">
+               <h3>{title}</h3>
+            </div>
             <div className="cta">
                <p>{roundedPrice(price) + " €"}</p>
                <PrimaryButton label={"Ajouter"} className="card-button" />
@@ -21,14 +23,14 @@ function ProductCard({ menu }) {
 }
 
 const ProductCardStyled = styled.div`
-   height: 330px;
+   height: 350px;
    width: 240px;
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
    border-radius: ${borderRadius.extraRound};
    margin: auto;
-   padding: 0 ${spacing.md} ${spacing.md};
+   padding: 0 ${spacing.md} ${spacing.sm};
    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
    img {
       width: 100%;
@@ -42,10 +44,15 @@ const ProductCardStyled = styled.div`
       width: 100%;
       height: 40%;
       justify-content: flex-end;
-      h3 {
-         align-self: flex-start;
-         font-family: "Amatic SC", cursive;
-         font-size: ${fonts.size.P4};
+      .product-title {
+         h3 {
+            align-self: flex-start;
+            font-family: "Amatic SC", cursive;
+            font-size: ${fonts.size.P4};
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+         }
       }
       .cta {
          width: 100%;

@@ -16,12 +16,12 @@ function OrderList() {
 const OrderListStyled = styled.div`
    width: 100%;
    height: 100%;
-   padding: ${theme.spacing.lg} 0 ${15 * theme.gridUnit}px;
+   padding: ${theme.spacing.xl} ${theme.spacing.md} ${15 * theme.gridUnit}px;
    display: grid;
    grid-template-columns: repeat(4, 250px);
-   grid-auto-rows: 350px;
-   grid-row-gap: ${theme.spacing.md};
-   justify-content: space-around;
+   grid-auto-rows: 370px;
+   grid-row-gap: ${theme.spacing.lg};
+   justify-content: space-evenly;
    overflow: scroll;
    @media (max-width: 1400px) {
       grid-template-columns: repeat(3, 1fr);
