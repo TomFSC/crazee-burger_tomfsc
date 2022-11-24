@@ -1,5 +1,7 @@
 import styled from "styled-components"
+import { theme } from "../../../theme"
 import { roundedPrice } from "../../../utils/calculation"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 function ProductCard({ title, imageSource, price }) {
    return (
@@ -9,7 +11,7 @@ function ProductCard({ title, imageSource, price }) {
             <h3>{title}</h3>
             <div className="cta">
                <p>{roundedPrice(price) + " €"}</p>
-               <button>Ajouter</button>
+               <PrimaryButton label={"Ajouter"} className="card-button" />
             </div>
          </div>
       </ProductCardStyled>
@@ -22,30 +24,47 @@ const ProductCardStyled = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
-   justify-content: space-around;
-   border: 2px solid red;
+   justify-content: flex-end;
    border-radius: 15px;
    margin: auto;
+   padding: 0 20px 20px;
+   box-shadow: -5px 5px 10px lightgrey;
+
    img {
-      width: fit-content;
-      height: 40%;
+      width: 100%;
+      height: 50%;
+      object-fit: contain;
    }
+
    .product-infos {
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 40%;
-      align-items: center;
-      justify-content: space-around;
-      border: 2px solid green;
+      justify-content: flex-end;
+      h3 {
+         align-self: flex-start;
+         font-family: "Amatic SC", cursive;
+         font-size: ${theme.fonts.size.P4};
+      }
 
       .cta {
          width: 100%;
          height: 50%;
          display: flex;
          align-items: center;
-         justify-content: space-around;
-         border: 2px solid blue;
+         justify-content: space-between;
+         font-family: "Open Sans", sans-serif;
+         p {
+            color: ${theme.colors.primary};
+            font-size: ${theme.fonts.size.P0};
+         }
+         .card-button {
+            width: 50%;
+            height: 40px;
+            margin: 0;
+            font-size: ${theme.fonts.size.P0};
+         }
       }
    }
 `

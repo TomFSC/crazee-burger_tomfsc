@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
-const { colors, fonts, spacing, borderRadius } = theme
+const { colors, borderRadius } = theme
 
-function PrimaryButton({ label, Icon }) {
+function PrimaryButton({ label, Icon, className }) {
    return (
-      <PrimaryButtonStyled>
+      <PrimaryButtonStyled className={className}>
          {label}
          {Icon && Icon}
       </PrimaryButtonStyled>
@@ -14,21 +14,12 @@ function PrimaryButton({ label, Icon }) {
 //Style
 
 const PrimaryButtonStyled = styled.button`
-   width: 100%;
-   height: 60px;
    display: flex;
    align-items: center;
    justify-content: center;
-   margin-top: ${spacing.sm};
-   font-size: ${fonts.size.P1};
    color: ${colors.white};
    background: ${colors.primary};
-   border: 1px solid ${colors.primary};
+   border: none;
    border-radius: ${borderRadius.round};
-
-   &:hover {
-      background: ${colors.white};
-      color: ${colors.primary};
-   }
 `
 export default PrimaryButton

@@ -44,6 +44,7 @@ export default function LoginForm() {
          <PrimaryButton
             label={"Accéder à mon espace"}
             Icon={<MdOutlineKeyboardArrowRight className="icon" />}
+            className="loginform-button"
          />
       </LoginFormStyled>
    )
@@ -77,7 +78,17 @@ const LoginFormStyled = styled.form`
       font-size: ${fonts.size.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
    }
-   .icon {
-      scale: 1.2;
+   .loginform-button {
+      width: 100%;
+      height: 60px;
+      margin-top: ${spacing.sm};
+      font-size: ${fonts.size.P1};
+      &:hover {
+         background: ${colors.white};
+         color: ${colors.primary};
+      }
+      .icon {
+         scale: 1.2;
+      }
    }
 `

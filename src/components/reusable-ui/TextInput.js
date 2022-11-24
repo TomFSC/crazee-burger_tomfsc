@@ -20,7 +20,6 @@ const InputStyled = styled.div`
    column-gap: ${spacing.sm};
    width: 100%;
    height: 60px;
-   border: 1px solid ${colors.dark};
    background-color: ${colors.white};
    border-radius: ${borderRadius.round};
    .icon {
