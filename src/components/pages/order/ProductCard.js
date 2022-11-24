@@ -29,8 +29,7 @@ const ProductCardStyled = styled.div`
    border-radius: ${borderRadius.extraRound};
    margin: auto;
    padding: 0 ${spacing.md} ${spacing.md};
-   box-shadow: -8px 8px 12px lightgrey;
-
+   box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
    img {
       width: 100%;
       height: 50%;
