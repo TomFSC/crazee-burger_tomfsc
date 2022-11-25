@@ -69,10 +69,15 @@ const ProductCardStyled = styled.div`
             width: 50%;
             height: ${5 * gridUnit}px;
             font-size: ${fonts.size.P0};
-            &:active {
+            &:hover {
+               transition: all 500ms;
                color: ${colors.primary};
-               border: 2px solid ${colors.primary};
+               border: 1px solid ${colors.primary};
                background-color: ${colors.white};
+               &:active {
+                  color: ${colors.white};
+                  background-color: ${colors.primary};
+               }
             }
          }
       }

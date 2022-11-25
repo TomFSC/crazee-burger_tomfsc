@@ -36,7 +36,6 @@ const OrderPageStyled = styled.div`
       .nav {
          position: absolute;
          top: 0;
-         z-index: 2;
       }
    }
 `

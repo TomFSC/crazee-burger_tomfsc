@@ -16,7 +16,7 @@ function OrderList() {
 const OrderListStyled = styled.div`
    width: 100%;
    height: 100%;
-   padding: ${theme.spacing.xl} ${theme.spacing.md} ${15 * theme.gridUnit}px;
+   padding: ${theme.spacing.lg} ${theme.spacing.md} ${15 * theme.gridUnit}px;
    display: grid;
    grid-template-columns: repeat(4, 250px);
    grid-auto-rows: 370px;
@@ -29,7 +29,7 @@ const OrderListStyled = styled.div`
    @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
    }
-   @media (max-width: 480px) {
+   @media (max-width: 600px) {
       grid-template-columns: repeat(1, 1fr);
    }
 `
