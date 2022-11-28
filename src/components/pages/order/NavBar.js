@@ -21,7 +21,7 @@ const NavBarStyled = styled.nav`
    align-items: center;
    width: 100%;
    height: 80px;
-   border-bottom: 1px solid ${colors.greyLight};
+   border-bottom: 1px solid ${colors.greyMedium};
    background-color: ${colors.white};
    box-shadow: 8px 8px 25px ${colors.greyMedium};
    @media screen and (max-width: 450px) {

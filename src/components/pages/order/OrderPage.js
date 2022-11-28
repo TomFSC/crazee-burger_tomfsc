@@ -1,18 +1,19 @@
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import NavBar from "./NavBar"
 import { theme } from "../../../theme"
-import OrderList from "./OrderList"
+import ProductsList from "./ProductsList"
+
 const { colors, borderRadius } = theme
 
 export default function OrderPage() {
-   const { state } = useLocation()
+   const { firstName } = useParams()
 
    return (
       <OrderPageStyled>
          <div className="order-container">
-            <NavBar firstName={state} className="nav" />
-            <OrderList />
+            <NavBar firstName={firstName} className="nav" />
+            <ProductsList />
          </div>
       </OrderPageStyled>
    )

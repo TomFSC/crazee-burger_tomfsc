@@ -19,7 +19,7 @@ const PrimaryButtonStyled = styled.button`
    justify-content: center;
    color: ${colors.white};
    background: ${colors.primary};
-   border: none;
+   border: 2px solid ${colors.primary};
    border-radius: ${borderRadius.round};
 `
 export default PrimaryButton

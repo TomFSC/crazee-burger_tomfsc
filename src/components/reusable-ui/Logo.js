@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
+import logo from "./logo-orange.png"
 const { colors, spacing, fonts } = theme
 
 function Logo({ className, onClick }) {
    return (
       <LogoStyled className={className} onClick={onClick}>
          CRAZEE
-         <img src={"images/logo-orange.png"} alt="logo-crazy-burger" />
+         <img src={logo} alt="logo-crazy-burger" />
          BURGER
       </LogoStyled>
    )

@@ -71,7 +71,7 @@ const CardStyled = styled.div`
                cursor: pointer;
                transition: all 500ms;
                color: ${colors.primary};
-               border: 1px solid ${colors.primary};
+               border: 2px solid ${colors.primary};
                background-color: ${colors.white};
                &:active {
                   color: ${colors.white};

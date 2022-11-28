@@ -4,9 +4,9 @@ import { formatPrice } from "../../../utils/maths"
 import { theme } from "../../../theme"
 import Card from "../../reusable-ui/Card"
 
-function OrderList() {
+function ProductsList() {
    return (
-      <OrderListStyled>
+      <ProductsListStyled>
          {fakeMenu2.map((product) => {
             return (
                <Card
@@ -17,11 +17,11 @@ function OrderList() {
                />
             )
          })}
-      </OrderListStyled>
+      </ProductsListStyled>
    )
 }
 
-const OrderListStyled = styled.div`
+const ProductsListStyled = styled.div`
    width: 100%;
    height: 100%;
    padding: ${theme.spacing.lg} ${theme.spacing.md} ${15 * theme.gridUnit}px;
@@ -42,4 +42,4 @@ const OrderListStyled = styled.div`
    }
 `
 
-export default OrderList
+export default ProductsList

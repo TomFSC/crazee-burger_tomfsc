@@ -26,7 +26,7 @@ export default function LoginForm() {
          setFirstName("")
          return
       }
-      navigate("/order", { state: `${firstName}` })
+      navigate(`/order/${firstName}`)
    }
    return (
       <LoginFormStyled action="submit" onSubmit={handleSubmit}>
@@ -84,8 +84,10 @@ const LoginFormStyled = styled.form`
       margin-top: ${spacing.sm};
       font-size: ${fonts.size.P1};
       &:hover {
-         background: ${colors.white};
+         transition: all 500ms;
+         background-color: ${colors.white};
          color: ${colors.primary};
+         border: 2px solid ${colors.primary};
       }
       .icon {
          scale: 1.2;
