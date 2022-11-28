@@ -1,28 +1,26 @@
 import styled from "styled-components"
-import { theme } from "../../../theme"
-import { roundedPrice } from "../../../utils/calculation"
-import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import { theme } from "../../theme"
+import PrimaryButton from "./PrimaryButton"
 const { colors, fonts, gridUnit, spacing, borderRadius } = theme
 
-function ProductCard({ menu }) {
-   const { imageSource, title, price } = menu
+function Card({ title, image, data }) {
    return (
-      <ProductCardStyled>
-         <img src={imageSource} alt={title} />
-         <div className="product-infos">
-            <div className="product-title">
+      <CardStyled>
+         <img src={image} alt={title} />
+         <div className="card-infos">
+            <div className="card-title">
                <h3>{title}</h3>
             </div>
             <div className="cta">
-               <p>{roundedPrice(price) + " €"}</p>
+               <p>{data}</p>
                <PrimaryButton label={"Ajouter"} className="card-button" />
             </div>
          </div>
-      </ProductCardStyled>
+      </CardStyled>
    )
 }
 
-const ProductCardStyled = styled.div`
+const CardStyled = styled.div`
    height: 350px;
    width: 240px;
    display: flex;
@@ -38,13 +36,13 @@ const ProductCardStyled = styled.div`
       object-fit: contain;
    }
 
-   .product-infos {
+   .card-infos {
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 40%;
       justify-content: flex-end;
-      .product-title {
+      .card-title {
          h3 {
             align-self: flex-start;
             font-family: "Amatic SC", cursive;
@@ -70,6 +68,7 @@ const ProductCardStyled = styled.div`
             height: ${5 * gridUnit}px;
             font-size: ${fonts.size.P0};
             &:hover {
+               cursor: pointer;
                transition: all 500ms;
                color: ${colors.primary};
                border: 1px solid ${colors.primary};
@@ -84,4 +83,4 @@ const ProductCardStyled = styled.div`
    }
 `
 
-export default ProductCard
+export default Card

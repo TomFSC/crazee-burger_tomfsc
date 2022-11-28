@@ -1,13 +1,21 @@
 import styled from "styled-components"
 import { fakeMenu2 } from "../../../fakeData/fakeMenu"
+import { formatPrice } from "../../../utils/maths"
 import { theme } from "../../../theme"
-import ProductCard from "./ProductCard"
+import Card from "../../reusable-ui/Card"
 
 function OrderList() {
    return (
       <OrderListStyled>
-         {fakeMenu2.map((menu) => {
-            return <ProductCard menu={menu} key={menu.id} />
+         {fakeMenu2.map((product) => {
+            return (
+               <Card
+                  title={product.title}
+                  image={product.imageSource}
+                  data={formatPrice(product.price)}
+                  key={product.id}
+               />
+            )
          })}
       </OrderListStyled>
    )
