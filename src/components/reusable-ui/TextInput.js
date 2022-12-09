@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
+const { colors, borderRadius, spacing, fonts } = theme
 
 function TextInput({ Icon, value, onChange, ...extraProps }) {
    return (
@@ -9,7 +10,8 @@ function TextInput({ Icon, value, onChange, ...extraProps }) {
       </InputStyled>
    )
 }
-const { colors, borderRadius, spacing, fonts } = theme
+
+//Style
 
 const InputStyled = styled.div`
    display: flex;
@@ -18,7 +20,6 @@ const InputStyled = styled.div`
    column-gap: ${spacing.sm};
    width: 100%;
    height: 60px;
-   border: 1px solid ${colors.dark};
    background-color: ${colors.white};
    border-radius: ${borderRadius.round};
    .icon {
@@ -30,7 +31,7 @@ const InputStyled = styled.div`
       height: 50%;
       border-style: none;
       padding: ${spacing.xs};
-      font-size: ${fonts.P1};
+      font-size: ${fonts.size.P1};
       ::placeholder {
          color: ${colors.greyMedium};
       }

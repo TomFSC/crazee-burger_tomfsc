@@ -7,7 +7,7 @@ import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 import { theme } from "../../../theme"
-const { colors, fonts, weights, spacing } = theme
+const { colors, fonts, spacing } = theme
 
 export default function LoginForm() {
    const navigate = useNavigate()
@@ -26,7 +26,7 @@ export default function LoginForm() {
          setFirstName("")
          return
       }
-      navigate("/order", { state: `${firstName}` })
+      navigate(`/order/${firstName}`)
    }
    return (
       <LoginFormStyled action="submit" onSubmit={handleSubmit}>
@@ -44,6 +44,7 @@ export default function LoginForm() {
          <PrimaryButton
             label={"Accéder à mon espace"}
             Icon={<MdOutlineKeyboardArrowRight className="icon" />}
+            className="loginform-button"
          />
       </LoginFormStyled>
    )
@@ -64,8 +65,8 @@ const LoginFormStyled = styled.form`
       text-align: center;
       font-family: "Amatic SC", cursive;
       color: ${colors.white};
-      font-size: ${fonts.P6};
-      font-weight: ${weights.bold};
+      font-size: ${fonts.size.P6};
+      font-weight: ${fonts.weights.bold};
       padding: ${spacing.lg};
       border-bottom: 3px solid ${colors.red};
    }
@@ -73,11 +74,23 @@ const LoginFormStyled = styled.form`
    h2 {
       font-family: "Amatic SC", cursive;
       color: ${colors.white};
-      font-weight: ${weights.semiBold};
-      font-size: ${fonts.P4};
+      font-weight: ${fonts.weights.semiBold};
+      font-size: ${fonts.size.P4};
       margin: ${spacing.lg} 0 ${spacing.md} 0;
    }
-   .icon {
-      scale: 1.2;
+   .loginform-button {
+      width: 100%;
+      height: 60px;
+      margin-top: ${spacing.sm};
+      font-size: ${fonts.size.P1};
+      &:hover {
+         transition: all 500ms;
+         background-color: ${colors.white};
+         color: ${colors.primary};
+         border: 2px solid ${colors.primary};
+      }
+      .icon {
+         scale: 1.2;
+      }
    }
 `
