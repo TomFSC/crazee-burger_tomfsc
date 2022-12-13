@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import Navbar from "./Navbar"
 import { theme } from "../../../theme"
-import ProductsList from "./ProductsList"
+import Main from "./Main/Main"
 
 const { colors, borderRadius } = theme
 
@@ -13,7 +13,7 @@ export default function OrderPage() {
       <OrderPageStyled>
          <div className="order-container">
             <Navbar firstName={firstName} className="nav" />
-            <ProductsList />
+            <Main />
          </div>
       </OrderPageStyled>
    )
@@ -21,13 +21,13 @@ export default function OrderPage() {
 
 //Style
 const OrderPageStyled = styled.div`
-   width: 100%;
    height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
    background-color: ${colors.primary};
    .order-container {
+      //position: relative;
       width: 1400px;
       height: 95vh;
       overflow: hidden;
