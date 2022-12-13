@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import NavBar from "./NavBar"
+import Navbar from "./Navbar"
 import { theme } from "../../../theme"
 import ProductsList from "./ProductsList"
 
@@ -12,7 +12,7 @@ export default function OrderPage() {
    return (
       <OrderPageStyled>
          <div className="order-container">
-            <NavBar firstName={firstName} className="nav" />
+            <Navbar firstName={firstName} className="nav" />
             <ProductsList />
          </div>
       </OrderPageStyled>

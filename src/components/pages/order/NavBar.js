@@ -1,21 +1,22 @@
 import styled from "styled-components"
 import Logo from "../../reusable-ui/Logo"
-import Profile from "./Profile"
 import { refreshPage } from "../../../utils/refreshPage"
 import { theme } from "../../../theme"
+import NavbarRightSide from "./NavbarRightSide"
+
 const { colors, spacing } = theme
 
-function NavBar({ firstName }) {
+function Navbar({ firstName }) {
    return (
-      <NavBarStyled>
+      <NavbarStyled>
          <Logo onClick={refreshPage} className="logo-order-page" />
-         <Profile firstName={firstName} />
-      </NavBarStyled>
+         <NavbarRightSide firstName={firstName} />
+      </NavbarStyled>
    )
 }
 
 //Style
-const NavBarStyled = styled.nav`
+const NavbarStyled = styled.nav`
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -26,6 +27,9 @@ const NavBarStyled = styled.nav`
    box-shadow: 8px 8px 25px ${colors.greyMedium};
    @media screen and (max-width: 450px) {
       justify-content: center;
+   }
+   .navbarRightSide {
+      display: flex;
    }
    .logo-order-page {
       scale: 1;
@@ -39,4 +43,4 @@ const NavBarStyled = styled.nav`
    }
 `
 
-export default NavBar
+export default Navbar
