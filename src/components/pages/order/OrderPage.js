@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import Navbar from "./Navbar"
+import Navbar from "./NavBar"
 import { theme } from "../../../theme"
 import Main from "./Main/Main"
 
@@ -27,7 +27,7 @@ const OrderPageStyled = styled.div`
    justify-content: center;
    background-color: ${colors.primary};
    .order-container {
-      //position: relative;
+      position: relative;
       width: 1400px;
       height: 95vh;
       overflow: hidden;

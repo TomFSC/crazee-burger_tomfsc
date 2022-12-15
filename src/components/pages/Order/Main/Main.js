@@ -4,25 +4,25 @@ import styled, { keyframes } from "styled-components"
 import ProductsList from "./ProductsList"
 
 function Main() {
-   const [toggleAdminPanel, setToggleAdminPanel] = useState(false)
+   const [togglePanelOptions, setTogglePanelOptions] = useState(false)
 
    function displayPanel() {
-      setToggleAdminPanel(!toggleAdminPanel)
+      setTogglePanelOptions(!togglePanelOptions)
    }
    return (
       <MainStyled>
-         <div className="basket"></div>
+         {/* <div className="basket">Basket</div> */}
          <div className="main-rightSide">
             <ProductsList />
             <div className="admin-panel">
                <div className="panel-admin-options">
                   <button onClick={displayPanel}>Open/Close</button>
-                  <button>Ajouter un produit</button>
+                  <button className="isActive">Ajouter un produit</button>
                   <button>Modifier un produit</button>
                </div>
                <div
                   id="panel"
-                  className={toggleAdminPanel ? "isOpenning" : "close"}
+                  className={togglePanelOptions ? "isOpenning" : "close"}
                ></div>
             </div>
          </div>
@@ -50,8 +50,9 @@ const MainStyled = styled.div`
       height: calc(95vh - 80px);
    }
    .main-rightSide {
-      position: relative;
-      border: 2px solid green;
+      //position: relative;
+      //border: 2px solid green;
+      overflow-y: scroll;
       .admin-panel {
          position: absolute;
          left: 0;
@@ -62,14 +63,20 @@ const MainStyled = styled.div`
             display: flex;
             width: 100%;
             height: 40px;
-            background-color: red;
+            background-color: white;
+
             button {
                width: 10%;
                height: 100%;
-               background-color: pink;
+               //background-color: pink;
+               border: 2px solid grey;
                &:hover {
                   cursor: pointer;
                }
+            }
+            .isActive {
+               border-bottom: white;
+               background-color: white;
             }
          }
          #panel {
