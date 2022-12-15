@@ -26,13 +26,13 @@ function Main({ isAdminModeActive, isActiveOption, setIsActiveOption }) {
                      <button onClick={displayPanel}>Open/Close</button>
                      <button
                         className={!isActiveOption ? "isActive" : ""}
-                        onClick={displayOptions}
+                        onClick={isActiveOption ? displayOptions : ""}
                      >
                         Ajouter un produit
                      </button>
                      <button
                         className={isActiveOption ? "isActive" : ""}
-                        onClick={displayOptions}
+                        onClick={!isActiveOption ? displayOptions : ""}
                      >
                         Modifier un produit
                      </button>
