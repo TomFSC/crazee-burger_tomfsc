@@ -1,43 +1,54 @@
 import React from "react"
 import { useState } from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import ProductsList from "./ProductsList"
 
-function Main() {
+function Main({ isAdminModeActive, isActiveOption, setIsActiveOption }) {
    const [togglePanelOptions, setTogglePanelOptions] = useState(false)
 
    function displayPanel() {
       setTogglePanelOptions(!togglePanelOptions)
    }
+
+   function displayOptions() {
+      setTogglePanelOptions(true)
+      setIsActiveOption(!isActiveOption)
+   }
+
    return (
       <MainStyled>
          {/* <div className="basket">Basket</div> */}
          <div className="main-rightSide">
             <ProductsList />
-            <div className="admin-panel">
-               <div className="panel-admin-options">
-                  <button onClick={displayPanel}>Open/Close</button>
-                  <button className="isActive">Ajouter un produit</button>
-                  <button>Modifier un produit</button>
+            {isAdminModeActive ? (
+               <div className="admin-panel">
+                  <div className="panel-admin-options">
+                     <button onClick={displayPanel}>Open/Close</button>
+                     <button
+                        className={!isActiveOption ? "isActive" : ""}
+                        onClick={displayOptions}
+                     >
+                        Ajouter un produit
+                     </button>
+                     <button
+                        className={isActiveOption ? "isActive" : ""}
+                        onClick={displayOptions}
+                     >
+                        Modifier un produit
+                     </button>
+                  </div>
+                  <div
+                     id="panel"
+                     className={togglePanelOptions ? "isOpenning" : "close"}
+                  ></div>
                </div>
-               <div
-                  id="panel"
-                  className={togglePanelOptions ? "isOpenning" : "close"}
-               ></div>
-            </div>
+            ) : (
+               ""
+            )}
          </div>
       </MainStyled>
    )
 }
-
-const openPanel = keyframes`
-    from {height: 0; opacity: 0}
-    to {height: 300px; opacity: 1}
- `
-const closePanel = keyframes`
-    from {height: 300px; opacity: 1}
-    to {height: 0; opacity: 0}
- `
 
 const MainStyled = styled.div`
    overflow-y: scroll;
@@ -85,10 +96,10 @@ const MainStyled = styled.div`
             width: 100%;
          }
          .isOpenning {
-            animation: 600ms ease-in 1 forwards ${openPanel};
+            height: 300px;
          }
          .close {
-            animation: 600ms ease-in 1 forwards ${closePanel};
+            height: 0px;
          }
       }
    }

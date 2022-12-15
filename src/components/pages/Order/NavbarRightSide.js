@@ -4,13 +4,18 @@ import { toast } from "react-toastify"
 import styled from "styled-components"
 import ToggleButton from "../../reusable-ui/ToggleButton"
 import Profile from "./Profile"
-import { useState } from "react"
+//import { useState } from "react"
 import ToastAdmin from "./ToastAdmin"
 
-export default function NavbarRightSideIncomplet({ firstName }) {
-   const [isAdminModeActive, setIsAdminModeActive] = useState(false)
+export default function NavbarRightSideIncomplet({
+   firstName,
+   isAdminModeActive,
+   setIsAdminModeActive,
+   setIsActiveOption,
+}) {
    const displayPopUp = () => {
       setIsAdminModeActive(!isAdminModeActive)
+      setIsActiveOption(false)
       if (!isAdminModeActive) {
          toast.info("Mode admin activé", {
             // icon: <FaUserSecret size={30} />,

@@ -3,17 +3,29 @@ import styled from "styled-components"
 import Navbar from "./NavBar"
 import { theme } from "../../../theme"
 import Main from "./Main/Main"
+import { useState } from "react"
 
 const { colors, borderRadius } = theme
 
 export default function OrderPage() {
    const { firstName } = useParams()
-
+   const [isAdminModeActive, setIsAdminModeActive] = useState(false)
+   const [isActiveOption, setIsActiveOption] = useState(false)
    return (
       <OrderPageStyled>
          <div className="order-container">
-            <Navbar firstName={firstName} className="nav" />
-            <Main />
+            <Navbar
+               firstName={firstName}
+               className="nav"
+               isAdminModeActive={isAdminModeActive}
+               setIsAdminModeActive={setIsAdminModeActive}
+               setIsActiveOption={setIsActiveOption}
+            />
+            <Main
+               isAdminModeActive={isAdminModeActive}
+               isActiveOption={isActiveOption}
+               setIsActiveOption={setIsActiveOption}
+            />
          </div>
       </OrderPageStyled>
    )
