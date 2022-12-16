@@ -1,10 +1,16 @@
-import React from "react"
-import { useState } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import AdminContext from "../../../../context/AdminContext"
 import ProductsList from "./ProductsList"
 
-function Main({ isAdminModeActive, isActiveOption, setIsActiveOption }) {
-   const [togglePanelOptions, setTogglePanelOptions] = useState(false)
+function Main() {
+   const {
+      isAdminModeActive,
+      isActiveOption,
+      setIsActiveOption,
+      togglePanelOptions,
+      setTogglePanelOptions,
+   } = useContext(AdminContext)
 
    function displayPanel() {
       setTogglePanelOptions(!togglePanelOptions)
@@ -20,30 +26,25 @@ function Main({ isAdminModeActive, isActiveOption, setIsActiveOption }) {
          {/* <div className="basket">Basket</div> */}
          <div className="main-rightSide">
             <ProductsList />
-            {isAdminModeActive ? (
+            {isAdminModeActive && (
                <div className="admin-panel">
-                  <div className="panel-admin-options">
+                  <div className="admin-panel-options">
                      <button onClick={displayPanel}>Open/Close</button>
                      <button
-                        className={!isActiveOption ? "isActive" : ""}
-                        onClick={isActiveOption ? displayOptions : ""}
+                        className={isActiveOption && "isActive"}
+                        onClick={!isActiveOption && displayOptions}
                      >
                         Ajouter un produit
                      </button>
                      <button
-                        className={isActiveOption ? "isActive" : ""}
-                        onClick={!isActiveOption ? displayOptions : ""}
+                        className={!isActiveOption && "isActive"}
+                        onClick={isActiveOption && displayOptions}
                      >
                         Modifier un produit
                      </button>
                   </div>
-                  <div
-                     id="panel"
-                     className={togglePanelOptions ? "isOpenning" : "close"}
-                  ></div>
+                  {togglePanelOptions && <div id="panel"></div>}
                </div>
-            ) : (
-               ""
             )}
          </div>
       </MainStyled>
@@ -70,7 +71,7 @@ const MainStyled = styled.div`
          bottom: 0;
          min-height: fit-content;
          width: 100%;
-         .panel-admin-options {
+         .admin-panel-options {
             display: flex;
             width: 100%;
             height: 40px;
@@ -94,12 +95,7 @@ const MainStyled = styled.div`
             background-color: white;
             //border: 2px solid blue;
             width: 100%;
-         }
-         .isOpenning {
             height: 300px;
-         }
-         .close {
-            height: 0px;
          }
       }
    }

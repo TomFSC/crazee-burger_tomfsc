@@ -26,7 +26,7 @@ const ProductsListStyled = styled.div`
    right: 0;
    width: 100%;
    height: 100%;
-   padding: ${theme.spacing.lg} ${theme.spacing.md} ${theme.spacing.xl};
+   padding: ${theme.spacing.lg} ${theme.spacing.md} ${theme.spacing.xxl};
    display: grid;
    grid-template-columns: repeat(4, 250px);
    grid-auto-rows: 370px;

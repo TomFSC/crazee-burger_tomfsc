@@ -6,21 +6,11 @@ import NavbarRightSide from "./NavbarRightSide"
 
 const { colors, spacing } = theme
 
-function Navbar({
-   firstName,
-   isAdminModeActive,
-   setIsAdminModeActive,
-   setIsActiveOption,
-}) {
+function Navbar({ firstName }) {
    return (
       <NavbarStyled>
          <Logo onClick={refreshPage} className="logo-order-page" />
-         <NavbarRightSide
-            firstName={firstName}
-            isAdminModeActive={isAdminModeActive}
-            setIsAdminModeActive={setIsAdminModeActive}
-            setIsActiveOption={setIsActiveOption}
-         />
+         <NavbarRightSide firstName={firstName} />
       </NavbarStyled>
    )
 }

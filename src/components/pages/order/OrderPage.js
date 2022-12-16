@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Navbar from "./NavBar"
 import { theme } from "../../../theme"
 import Main from "./Main/Main"
+import AdminContext from "../../../context/AdminContext"
 import { useState } from "react"
 
 const { colors, borderRadius } = theme
@@ -11,23 +12,26 @@ export default function OrderPage() {
    const { firstName } = useParams()
    const [isAdminModeActive, setIsAdminModeActive] = useState(false)
    const [isActiveOption, setIsActiveOption] = useState(false)
+   const [togglePanelOptions, setTogglePanelOptions] = useState(false)
+
+   const adminContext = {
+      isAdminModeActive,
+      setIsAdminModeActive,
+      isActiveOption,
+      setIsActiveOption,
+      togglePanelOptions,
+      setTogglePanelOptions,
+   }
+
    return (
-      <OrderPageStyled>
-         <div className="order-container">
-            <Navbar
-               firstName={firstName}
-               className="nav"
-               isAdminModeActive={isAdminModeActive}
-               setIsAdminModeActive={setIsAdminModeActive}
-               setIsActiveOption={setIsActiveOption}
-            />
-            <Main
-               isAdminModeActive={isAdminModeActive}
-               isActiveOption={isActiveOption}
-               setIsActiveOption={setIsActiveOption}
-            />
-         </div>
-      </OrderPageStyled>
+      <AdminContext.Provider value={adminContext}>
+         <OrderPageStyled>
+            <div className="order-container">
+               <Navbar firstName={firstName} className="nav" />
+               <Main />
+            </div>
+         </OrderPageStyled>
+      </AdminContext.Provider>
    )
 }
 
