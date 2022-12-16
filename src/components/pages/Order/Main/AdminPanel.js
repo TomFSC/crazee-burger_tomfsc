@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
+import PanelOptionsButton from "./PanelOptionsButton"
 
 function AdminPanel() {
    const {
@@ -22,19 +23,17 @@ function AdminPanel() {
    return (
       <AdminPanelStyled>
          <div className="admin-panel-options">
-            <button onClick={displayPanel}>Open/Close</button>
-            <button
+            <PanelOptionsButton onClick={displayPanel} label="Open/Close" />
+            <PanelOptionsButton
+               label="Ajouter un produit"
                className={isActiveOption && "isActive"}
                onClick={!isActiveOption && displayOptions}
-            >
-               Ajouter un produit
-            </button>
-            <button
+            />
+            <PanelOptionsButton
+               label=" Modifier un produit"
                className={!isActiveOption && "isActive"}
                onClick={isActiveOption && displayOptions}
-            >
-               Modifier un produit
-            </button>
+            />
          </div>
          {togglePanelOptions && <div id="panel"></div>}
       </AdminPanelStyled>
@@ -53,15 +52,6 @@ const AdminPanelStyled = styled.div`
       height: 40px;
       background-color: white;
 
-      button {
-         width: 10%;
-         height: 100%;
-         //background-color: pink;
-         border: 2px solid grey;
-         &:hover {
-            cursor: pointer;
-         }
-      }
       .isActive {
          border-bottom: white;
          background-color: white;
