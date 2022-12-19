@@ -1,10 +1,10 @@
 import { createContext } from "react"
 
 export default createContext({
-   isAdminModeActive: false,
-   setIsAdminModeActive: () => {},
-   isActiveOption: false,
-   setIsActiveOption: () => {},
+   isAdminMode: false,
+   setIsAdminMode: () => {},
+   isActiveTab: false,
+   setIsActiveTab: () => {},
    isPanelVisible: true,
    setIsPanelVisible: () => {},
 })

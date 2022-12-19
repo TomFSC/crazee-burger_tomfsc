@@ -4,16 +4,16 @@ import { theme } from "../../../../theme"
 
 const { colors, fonts, spacing, borderRadius } = theme
 
-function PanelOptionsButton({ className, onClick, label, icon }) {
+function PanelTabButton({ className, onClick, label, icon }) {
    return (
-      <PanelOptionsButtonStyled className={className} onClick={onClick}>
+      <PanelTabButtonStyled className={className} onClick={onClick}>
          {icon}
          {label}
-      </PanelOptionsButtonStyled>
+      </PanelTabButtonStyled>
    )
 }
 
-const PanelOptionsButtonStyled = styled.button`
+const PanelTabButtonStyled = styled.button`
    width: fit-content;
    height: 100%;
    display: flex;
@@ -36,4 +36,4 @@ const PanelOptionsButtonStyled = styled.button`
    }
 `
 
-export default PanelOptionsButton
+export default PanelTabButton

@@ -1,19 +1,15 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
-import PanelOptionsButton from "./PanelOptionsButton"
+import PanelTabButton from "./PanelTabButton"
 import { FaPen, FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa"
 import { theme } from "../../../../theme"
 
 const { colors, fonts, spacing } = theme
 
 function AdminPanel() {
-   const {
-      isActiveOption,
-      setIsActiveOption,
-      isPanelVisible,
-      setIsPanelVisible,
-   } = useContext(AdminContext)
+   const { isActiveTab, setIsActiveTab, isPanelVisible, setIsPanelVisible } =
+      useContext(AdminContext)
 
    function displayPanel() {
       setIsPanelVisible(!isPanelVisible)
@@ -21,13 +17,13 @@ function AdminPanel() {
 
    function displayOptions() {
       setIsPanelVisible(true)
-      setIsActiveOption(!isActiveOption)
+      setIsActiveTab(!isActiveTab)
    }
 
    return (
       <AdminPanelStyled>
          <div className="admin-panel-options">
-            <PanelOptionsButton
+            <PanelTabButton
                className={!isPanelVisible && "isActive"}
                onClick={displayPanel}
                icon={
@@ -38,15 +34,15 @@ function AdminPanel() {
                   )
                }
             />
-            <PanelOptionsButton
-               className={isActiveOption && "isActive"}
-               onClick={!isActiveOption && displayOptions}
+            <PanelTabButton
+               className={isActiveTab && "isActive"}
+               onClick={!isActiveTab && displayOptions}
                icon={<FaPlus />}
                label={"Ajouter un produit"}
             />
-            <PanelOptionsButton
-               className={!isActiveOption && "isActive"}
-               onClick={isActiveOption && displayOptions}
+            <PanelTabButton
+               className={!isActiveTab && "isActive"}
+               onClick={isActiveTab && displayOptions}
                icon={<FaPen />}
                label=" Modifier un produit"
             />

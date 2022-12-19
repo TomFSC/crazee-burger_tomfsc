@@ -10,15 +10,15 @@ const { colors, borderRadius } = theme
 
 export default function OrderPage() {
    const { firstName } = useParams()
-   const [isAdminModeActive, setIsAdminModeActive] = useState(false)
-   const [isActiveOption, setIsActiveOption] = useState(false)
+   const [isAdminMode, setIsAdminMode] = useState(false)
+   const [isActiveTab, setIsActiveTab] = useState(false)
    const [isPanelVisible, setIsPanelVisible] = useState(false)
 
    const adminContext = {
-      isAdminModeActive,
-      setIsAdminModeActive,
-      isActiveOption,
-      setIsActiveOption,
+      isAdminMode,
+      setIsAdminMode,
+      isActiveTab,
+      setIsActiveTab,
       isPanelVisible,
       setIsPanelVisible,
    }
