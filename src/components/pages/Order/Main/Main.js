@@ -1,18 +1,18 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
-import AdminPanel from "./AdminPanel"
-import Products from "./Products"
+import AdminPanel from "./AdminPanel/AdminPanel"
+import Products from "./AdminPanel/Products"
 
 function Main() {
-   const { isAdminModeActive } = useContext(AdminContext)
+   const { isAdminMode } = useContext(AdminContext)
 
    return (
       <MainStyled>
          {/* <div className="basket">Basket</div> */}
          {/* <div className="main-rightSide"> */}
          <Products />
-         {isAdminModeActive && <AdminPanel />}
+         {isAdminMode && <AdminPanel />}
          {/* </div> */}
       </MainStyled>
    )

@@ -1,23 +1,28 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
-import AdminContext from "../../../../context/AdminContext"
+import AdminContext from "../../../../../context/AdminContext"
 import PanelTabButton from "./PanelTabButton"
 import { FaPen, FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa"
-import { theme } from "../../../../theme"
+import { theme } from "../../../../../theme"
+import PanelOption from "./Panel"
 
 const { colors, fonts, spacing } = theme
 
 function AdminPanel() {
    const { isActiveTab, setIsActiveTab, isPanelVisible, setIsPanelVisible } =
       useContext(AdminContext)
+   const [panelOption, setPanelOption] = useState("Ajouter un produit")
 
    function displayPanel() {
       setIsPanelVisible(!isPanelVisible)
    }
 
-   function displayOptions() {
+   function displayTab() {
       setIsPanelVisible(true)
       setIsActiveTab(!isActiveTab)
+      setPanelOption(
+         !isActiveTab ? "Ajouter un produit" : "Modifier un produit"
+      )
    }
 
    return (
@@ -35,19 +40,19 @@ function AdminPanel() {
                }
             />
             <PanelTabButton
-               className={isActiveTab && "isActive"}
-               onClick={!isActiveTab && displayOptions}
+               className={isActiveTab && " isActive optionTab"}
+               onClick={!isActiveTab ? displayTab : null}
                icon={<FaPlus />}
-               label={"Ajouter un produit"}
+               label="Ajouter un produit"
             />
             <PanelTabButton
-               className={!isActiveTab && "isActive"}
-               onClick={isActiveTab && displayOptions}
+               className={!isActiveTab && "isActive optionTab"}
+               onClick={isActiveTab ? displayTab : null}
                icon={<FaPen />}
-               label=" Modifier un produit"
+               label="Modifier un produit"
             />
          </div>
-         {isPanelVisible && <div className="panel"></div>}
+         {isPanelVisible && <PanelOption panelOption={panelOption} />}
       </AdminPanelStyled>
    )
 }
@@ -76,13 +81,12 @@ const AdminPanelStyled = styled.div`
             text-decoration-color: ${colors.white};
          }
       }
-   }
-
-   .panel {
-      width: 100%;
-      height: 300px;
-      background-color: ${colors.white};
-      box-shadow: 3px -5px 5px ${colors.greyLight};
+      .optionTab {
+         &:active {
+            background-color: ${colors.white};
+            color: ${colors.greySemiDark};
+         }
+      }
    }
 `
 

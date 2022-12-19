@@ -1,12 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../../theme"
+import { theme } from "../../../../../theme"
 
 const { colors, fonts, spacing, borderRadius } = theme
 
-function PanelTabButton({ className, onClick, label, icon }) {
+function PanelTabButton({ className, onClick, label, icon, panelOption }) {
    return (
-      <PanelTabButtonStyled className={className} onClick={onClick}>
+      <PanelTabButtonStyled
+         className={className}
+         onClick={onClick}
+         panelOption={panelOption}
+      >
          {icon}
          {label}
       </PanelTabButtonStyled>
