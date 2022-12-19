@@ -2,6 +2,10 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
 import PanelOptionsButton from "./PanelOptionsButton"
+import { FaPen, FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa"
+import { theme } from "../../../../theme"
+
+const { colors, fonts, spacing } = theme
 
 function AdminPanel() {
    const {
@@ -23,19 +27,31 @@ function AdminPanel() {
    return (
       <AdminPanelStyled>
          <div className="admin-panel-options">
-            <PanelOptionsButton onClick={displayPanel} label="Open/Close" />
             <PanelOptionsButton
-               label="Ajouter un produit"
+               className={!isPanelVisible && "isActive"}
+               onClick={displayPanel}
+               icon={
+                  isPanelVisible ? (
+                     <FaChevronDown className="icon" />
+                  ) : (
+                     <FaChevronUp className="icon" />
+                  )
+               }
+            />
+            <PanelOptionsButton
                className={isActiveOption && "isActive"}
                onClick={!isActiveOption && displayOptions}
+               icon={<FaPlus />}
+               label={"Ajouter un produit"}
             />
             <PanelOptionsButton
-               label=" Modifier un produit"
                className={!isActiveOption && "isActive"}
                onClick={isActiveOption && displayOptions}
+               icon={<FaPen />}
+               label=" Modifier un produit"
             />
          </div>
-         {isPanelVisible && <div id="panel"></div>}
+         {isPanelVisible && <div className="panel"></div>}
       </AdminPanelStyled>
    )
 }
@@ -44,24 +60,33 @@ const AdminPanelStyled = styled.div`
    position: absolute;
    left: 0;
    bottom: 0;
-   min-height: fit-content;
    width: 100%;
    .admin-panel-options {
       display: flex;
-      width: 100%;
+      position: relative;
+      top: -2px;
       height: 40px;
-      background-color: white;
+      margin-left: ${spacing.lg};
+
+      .icon {
+         font-size: ${fonts.size.P0};
+      }
 
       .isActive {
-         border-bottom: white;
-         background-color: white;
+         border-bottom: ${colors.white};
+         background-color: ${colors.background_dark};
+         color: ${colors.white};
+         &:hover {
+            text-decoration-color: ${colors.white};
+         }
       }
    }
-   #panel {
-      background-color: white;
-      //border: 2px solid blue;
+
+   .panel {
       width: 100%;
       height: 300px;
+      background-color: ${colors.white};
+      box-shadow: 3px -5px 5px ${colors.greyLight};
    }
 `
 
