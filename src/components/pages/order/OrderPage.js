@@ -12,15 +12,15 @@ export default function OrderPage() {
    const { firstName } = useParams()
    const [isAdminModeActive, setIsAdminModeActive] = useState(false)
    const [isActiveOption, setIsActiveOption] = useState(false)
-   const [togglePanelOptions, setTogglePanelOptions] = useState(false)
+   const [isPanelVisible, setIsPanelVisible] = useState(false)
 
    const adminContext = {
       isAdminModeActive,
       setIsAdminModeActive,
       isActiveOption,
       setIsActiveOption,
-      togglePanelOptions,
-      setTogglePanelOptions,
+      isPanelVisible,
+      setIsPanelVisible,
    }
 
    return (

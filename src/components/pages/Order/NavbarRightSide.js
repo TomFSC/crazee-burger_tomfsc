@@ -12,13 +12,13 @@ export default function NavbarRightSideIncomplet({ firstName }) {
       isAdminModeActive,
       setIsAdminModeActive,
       setIsActiveOption,
-      setTogglePanelOptions,
+      setIsPanelVisible,
    } = useContext(AdminContext)
 
    const displayPopUp = () => {
       setIsAdminModeActive(!isAdminModeActive)
       if (!isAdminModeActive) {
-         setTogglePanelOptions(true)
+         setIsPanelVisible(true)
          setIsActiveOption(true)
          toast.info("Mode admin activé", {
             // icon: <FaUserSecret size={30} />,

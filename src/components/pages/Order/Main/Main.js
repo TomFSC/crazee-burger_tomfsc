@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
 import AdminPanel from "./AdminPanel"
-import ProductsList from "./ProductsList"
+import Products from "./Products"
 
 function Main() {
    const { isAdminModeActive } = useContext(AdminContext)
@@ -11,7 +11,7 @@ function Main() {
       <MainStyled>
          {/* <div className="basket">Basket</div> */}
          {/* <div className="main-rightSide"> */}
-         <ProductsList />
+         <Products />
          {isAdminModeActive && <AdminPanel />}
          {/* </div> */}
       </MainStyled>

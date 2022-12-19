@@ -7,16 +7,16 @@ function AdminPanel() {
    const {
       isActiveOption,
       setIsActiveOption,
-      togglePanelOptions,
-      setTogglePanelOptions,
+      isPanelVisible,
+      setIsPanelVisible,
    } = useContext(AdminContext)
 
    function displayPanel() {
-      setTogglePanelOptions(!togglePanelOptions)
+      setIsPanelVisible(!isPanelVisible)
    }
 
    function displayOptions() {
-      setTogglePanelOptions(true)
+      setIsPanelVisible(true)
       setIsActiveOption(!isActiveOption)
    }
 
@@ -35,7 +35,7 @@ function AdminPanel() {
                onClick={isActiveOption && displayOptions}
             />
          </div>
-         {togglePanelOptions && <div id="panel"></div>}
+         {isPanelVisible && <div id="panel"></div>}
       </AdminPanelStyled>
    )
 }

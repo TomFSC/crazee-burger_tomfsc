@@ -4,9 +4,9 @@ import { formatPrice } from "../../../../utils/maths"
 import { theme } from "../../../../theme"
 import Card from "../../../reusable-ui/Card"
 
-function ProductsList() {
+function Products() {
    return (
-      <ProductsListStyled>
+      <ProductsStyled>
          {fakeMenu2.map((product) => {
             return (
                <Card
@@ -17,11 +17,11 @@ function ProductsList() {
                />
             )
          })}
-      </ProductsListStyled>
+      </ProductsStyled>
    )
 }
 
-const ProductsListStyled = styled.div`
+const ProductsStyled = styled.div`
    position: absolute;
    right: 0;
    width: 100%;
@@ -44,4 +44,4 @@ const ProductsListStyled = styled.div`
    }
 `
 
-export default ProductsList
+export default Products

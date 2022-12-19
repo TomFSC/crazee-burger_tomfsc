@@ -5,6 +5,6 @@ export default createContext({
    setIsAdminModeActive: () => {},
    isActiveOption: false,
    setIsActiveOption: () => {},
-   togglePanelOptions: true,
-   setTogglePanelOptions: () => {},
+   isPanelVisible: true,
+   setIsPanelVisible: () => {},
 })
