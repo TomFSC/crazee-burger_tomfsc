@@ -8,14 +8,14 @@ import ToastAdmin from "./ToastAdmin"
 import AdminContext from "../../../context/AdminContext"
 
 export default function NavbarRightSideIncomplet({ firstName }) {
-   const { isAdminMode, setIsAdminMode, setIsActiveTab, setIsPanelVisible } =
+   const { isAdminMode, setIsAdminMode, setIsTabActive, setIsPanelVisible } =
       useContext(AdminContext)
 
    const displayPopUp = () => {
       setIsAdminMode(!isAdminMode)
       if (!isAdminMode) {
          setIsPanelVisible(true)
-         setIsActiveTab(true)
+         setIsTabActive(true)
          toast.info("Mode admin activé", {
             // icon: <FaUserSecret size={30} />,
             theme: "dark",

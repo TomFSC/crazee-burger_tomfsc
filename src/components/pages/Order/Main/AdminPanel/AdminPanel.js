@@ -4,12 +4,12 @@ import AdminContext from "../../../../../context/AdminContext"
 import PanelTabButton from "./PanelTabButton"
 import { FaPen, FaPlus, FaChevronDown, FaChevronUp } from "react-icons/fa"
 import { theme } from "../../../../../theme"
-import PanelOption from "./Panel"
+import Panel from "./Panel"
 
 const { colors, fonts, spacing } = theme
 
 function AdminPanel() {
-   const { isActiveTab, setIsActiveTab, isPanelVisible, setIsPanelVisible } =
+   const { isTabActive, setIsTabActive, isPanelVisible, setIsPanelVisible } =
       useContext(AdminContext)
    const [panelOption, setPanelOption] = useState("Ajouter un produit")
 
@@ -19,9 +19,9 @@ function AdminPanel() {
 
    function displayTab() {
       setIsPanelVisible(true)
-      setIsActiveTab(!isActiveTab)
+      setIsTabActive(!isTabActive)
       setPanelOption(
-         !isActiveTab ? "Ajouter un produit" : "Modifier un produit"
+         !isTabActive ? "Ajouter un produit" : "Modifier un produit"
       )
    }
 
@@ -40,19 +40,19 @@ function AdminPanel() {
                }
             />
             <PanelTabButton
-               className={isActiveTab && " isActive optionTab"}
-               onClick={!isActiveTab ? displayTab : null}
+               className={isTabActive && " isActive optionTab"}
+               onClick={!isTabActive ? displayTab : null}
                icon={<FaPlus />}
                label="Ajouter un produit"
             />
             <PanelTabButton
-               className={!isActiveTab && "isActive optionTab"}
-               onClick={isActiveTab ? displayTab : null}
+               className={!isTabActive && "isActive optionTab"}
+               onClick={isTabActive ? displayTab : null}
                icon={<FaPen />}
                label="Modifier un produit"
             />
          </div>
-         {isPanelVisible && <PanelOption panelOption={panelOption} />}
+         {isPanelVisible && <Panel panelOption={panelOption} />}
       </AdminPanelStyled>
    )
 }
@@ -62,6 +62,7 @@ const AdminPanelStyled = styled.div`
    left: 0;
    bottom: 0;
    width: 100%;
+
    .admin-panel-options {
       display: flex;
       position: relative;
