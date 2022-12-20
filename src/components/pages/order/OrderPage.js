@@ -1,33 +1,49 @@
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import Navbar from "./Navbar"
+import Navbar from "./NavBar"
 import { theme } from "../../../theme"
-import ProductsList from "./ProductsList"
+import Main from "./Main/Main"
+import AdminContext from "../../../context/AdminContext"
+import { useState } from "react"
 
 const { colors, borderRadius } = theme
 
 export default function OrderPage() {
    const { firstName } = useParams()
+   const [isAdminMode, setIsAdminMode] = useState(false)
+   const [isTabActive, setIsTabActive] = useState(false)
+   const [isPanelVisible, setIsPanelVisible] = useState(false)
+
+   const adminContext = {
+      isAdminMode,
+      setIsAdminMode,
+      isTabActive,
+      setIsTabActive,
+      isPanelVisible,
+      setIsPanelVisible,
+   }
 
    return (
-      <OrderPageStyled>
-         <div className="order-container">
-            <Navbar firstName={firstName} className="nav" />
-            <ProductsList />
-         </div>
-      </OrderPageStyled>
+      <AdminContext.Provider value={adminContext}>
+         <OrderPageStyled>
+            <div className="order-container">
+               <Navbar firstName={firstName} className="nav" />
+               <Main />
+            </div>
+         </OrderPageStyled>
+      </AdminContext.Provider>
    )
 }
 
 //Style
 const OrderPageStyled = styled.div`
-   width: 100%;
    height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
    background-color: ${colors.primary};
    .order-container {
+      position: relative;
       width: 1400px;
       height: 95vh;
       overflow: hidden;

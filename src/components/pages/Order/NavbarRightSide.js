@@ -1,17 +1,21 @@
-import React from "react"
+import React, { useContext } from "react"
 import "react-toastify/dist/ReactToastify.css"
 import { toast } from "react-toastify"
 import styled from "styled-components"
 import ToggleButton from "../../reusable-ui/ToggleButton"
 import Profile from "./Profile"
-import { useState } from "react"
 import ToastAdmin from "./ToastAdmin"
+import AdminContext from "../../../context/AdminContext"
 
 export default function NavbarRightSideIncomplet({ firstName }) {
-   const [isAdminModeActive, setIsAdminModeActive] = useState(false)
+   const { isAdminMode, setIsAdminMode, setIsTabActive, setIsPanelVisible } =
+      useContext(AdminContext)
+
    const displayPopUp = () => {
-      setIsAdminModeActive(!isAdminModeActive)
-      if (!isAdminModeActive) {
+      setIsAdminMode(!isAdminMode)
+      if (!isAdminMode) {
+         setIsPanelVisible(true)
+         setIsTabActive(true)
          toast.info("Mode admin activé", {
             // icon: <FaUserSecret size={30} />,
             theme: "dark",

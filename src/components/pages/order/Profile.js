@@ -25,7 +25,7 @@ const ProfileStyled = styled.div`
    justify-content: center;
    column-gap: ${spacing.md};
    height: 100%;
-   margin: 0 50px;
+   margin: 0 ${spacing.xl};
    @media screen and (max-width: 580px) {
       margin-right: 0;
       justify-content: flex-start;
